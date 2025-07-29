@@ -63,17 +63,10 @@ def pnl(H,W,D, data):
                 for j in range(len(date_price)):                                            #we sell the stock after holding it for H seconds here
                     H_secs = (dates[j] - dates[i+1]).total_seconds()
                     if j > i and H_secs > H:
-                        print('difference in j and i+1 is: ',H_secs)
-                        print(all_prices)
-                        print('we sell for this price: ', all_prices[j-1])
                         pnl = pnl + all_prices[j-1]
-                        print('pnl after selling the stock is: ', pnl)
                         break
                     elif H_secs == (dates[len(dates)- 1] - dates[i+1]).total_seconds():
-                            print('difference in dates j and i+1 is: ', H_secs)
-                            print(all_prices[len(all_prices) - 1])
                             pnl = pnl + all_prices[len(all_prices) - 1]
-                            print('pnl after buying the stock is: ',pnl)
                             break
                     
             elif last_trade_time != 0:                                                      #case where we have a last_trade_time so we check if we waited W seconds and do the same actions (buy and sell after holding for H seconds)
