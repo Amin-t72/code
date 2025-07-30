@@ -107,6 +107,6 @@ def pnl(H,W,D, data):
                             pnl = pnl - all_prices[len(all_prices)- 1]
                             break 
 
-    return('The total pnl after trading is: ', round(pnl,2))
+    return(round(pnl,2))
 
 print(pnl(H,W,D,data))
